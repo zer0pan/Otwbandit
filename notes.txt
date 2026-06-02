@@ -1,0 +1,561 @@
+0. ssh -p 2220 bandit0@bandit.labs.overthewire.org (ssh command)
+ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+
+_______________________________________________________________
+
+1. to open a file with a character name you may need to use ./[character]
+263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+
+_______________________________________________________________
+2. bandit2@bandit:~$ cat -- --spaces\ in\ this\ filename--
+cat -- 
+"--" is to end options and \ is to escape a character
+MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+
+_______________________________________________________________
+3. ls -la 
+-l is long list 
+-a show the hidden files
+2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+
+
+_______________________________________________________________
+4.bandit4@bandit:~/inhere$ file -- *
+-file00: data
+-file01: data
+-file02: data
+-file03: data
+-file04: data
+-file05: data
+-file06: data
+-file07: ASCII text (human-readable)
+-file08: data
+-file09: data
+4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+_______________________________________________________________
+5.
+find . -type f -size 1033c ! -executable
+
+. → start searching in the current directory
+-type f → only match regular files
+-size size specifier 1033c (1033 characters)
+! -executable (non executable)
+
+HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+
+_______________________________________________________________
+6. 
+find . (search in current directory)
+find / (search in every possible directory (from root))
+
+find / -user bandit7 -group bandit6 -size 33c
+
+Στο Linux, κάθε διεργασία επικοινωνεί με το περιβάλλον της μέσω τριών
+ βασικών ροών δεδομένων (standard streams), οι οποίες αναγνωρίζονται 
+ με έναν αριθμό
+0: Standard Input (stdin) - Η τυπική είσοδος (συνήθως το πληκτρολόγιο).
+
+1: Standard Output (stdout) - Η τυπική έξοδος, όπου καταλήγουν τα κανονικά και επιτυχή αποτελέσματα.
+
+2: Standard Error (stderr) - Η τυπική ροή σφαλμάτων, όπου καταλήγουν τα διαγνωστικά μηνύματα και τα σφάλματα (όπως το "Permission denied").4
+
+3. Συγχώνευση Ροών (2>&1)
+Αυτή είναι μια πολύ κοινή σύνταξη στο Linux. Λέει στο σύστημα: 
+"Πάρε τη ροή σφαλμάτων (2) και στείλε την (>) στο ίδιο μέρος (&) 
+που πηγαίνει ήδη η ροή της κανονικής εξόδου (1)"
+
+find / -user bandit7 -group bandit6 -size 33c 2>&1 | grep -v "Permission denied"
+
+grep "kati" -> ποιανει κατι που περιεχει μεσα το "kati"
+grep -v "kati" -> αποκλειει κατι που περιεχει το "kati"
+
+morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+_______________________________________________________________
+7. 
+cat data.txt >&1 | grep "millionth"
+
+millionth       dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+cat data.txt | grep "millionth"
+
+millionth       dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+bandit7@bandit:~$ cat data.txt >&1 | grep "millionth"
+millionth       dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+bandit7@bandit:~$ cat data.txt 1>&1 | grep "millionth"
+millionth       dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+_______________________________________________________________
+
+8.
+sort data.txt | uniq -c | grep "1 "
+
+Piping is transfering the stdout(1) into the next procedure 
+
+sort data.txt : prints something , with pipe (|) it sends it to the next function (uniq) which is executed
+
+so if :
+sort data.txt > new.txt    (">" data are sent to new.txt)
+uniq -c new.txt 
+
+prints exactly the same with 
+sort data.txt | uniq -c 
+
+4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+_______________________________________________________________
+9. 
+The strings command in Linux is a utility that 
+extracts human-readable text strings from binary files.
+
+strings data.txt | grep "=="
+FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+_______________________________________________________________
+
+10. 
+really simple application of the base64 command
+
+bandit10@bandit:~$ base64 -d data.txt
+
+The password is dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+
+_______________________________________________________________
+11.
+It can be implemented by C as well (I have a repository in GitHub)
+
+tr is for translating 
+'A-Za-z' is for the alphabet (Capital and lowercase chars)
+
+'A-MN-Za-mn-z' to encrypt A to M (capital and lower) to N to Z (capital and lower)
+'N-ZA-Mn-za-m' to decrypt N to Z (capital and lower) to A to M (capital and lower)
+
+The password is 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+
+_______________________________________________________________
+12. 
+bandit12@bandit:~$ file {file}      ---> tells the type of the file 
+
+xxd -r data.txt > new.txt        --->  -r reverse operation: convert (or patch) hexdump into binary.
+file new.txt
+new.txt: gzip compressed data, was "data2.bin", last modified: Fri Apr  3 15:17:36 2026, max compression, from Unix, original size modulo 2^32 576
+
+in the next phase(s) you have to check what file it is using : file {file}
+then rename it (eg. mv new.txt new.gz ) and then execute the matching command
+
+for instance:
+
+cpanaret@LAPTOP-3C8LF0A2:~/bandit$ mv new.txt new.gz
+cpanaret@LAPTOP-3C8LF0A2:~/bandit$ gzip -d new.gz
+cpanaret@LAPTOP-3C8LF0A2:~/bandit$ ls
+dat.txt  data.txt  new  notes.txt
+cpanaret@LAPTOP-3C8LF0A2:~/bandit$ file new
+new: bzip2 compressed data, block size = 900k
+
+The password is FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+
+_______________________________________________________________
+13. 
+
+the idea here is to connect via ssh without password but with a key which is encrypted
+but first we have to make sshkey.private not accesible by others and then connect like so:
+
+chmod 700 sshkey.private (making it not accesible for others)
+ssh -i path/to/file.ssh (for ssh key)
+
+ssh -p 2220 -i bandit/sshkey.private bandit14@bandit.labs.overthewire.org
+
+for 14 the password is MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+
+_______________________________________________________________
+14.
+8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+
+The password for the next level can be retrieved by submitting 
+the password of the current level to port 30000 on localhost.
+
+Once I establish connection to host (ssh -p 2220 -i bandit/sshkey.private bandit14@bandit.labs.overthewire.org)
+
+scan the ip address for open ports
+
+nmap -v 13.63.65.121      (*) when not connected in host(bandit.labs.overthewire.org)
+nmap -v 127.0.0.1             when connected in host
+Discovered open port 30000/tcp on 127.0.0.1(localhost)
+
+
+telnet 127.0.0.1 30000
+telnet localhost 30000 
+they are the same 
+
+submit MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS (level 14 password)
+
+Correct 
+8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+(*) 13.63.65.121 is the ip of bandit.labs.overthewire.org (command: dig bandit.labs.overthewire.org)
+
+_______________________________________________________________
+15.
+
+The password for the next level can be retrieved by submitting the password of the 
+current level to port 30001 on localhost using SSL/TLS encryption.
+
+openssl s_client -connect 127.0.0.1:30001
+
+
+kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
+
+_______________________________________________________________
+16. (requires lvls 15, 13 and nmap)
+
+**The credentials for the next level can be retrieved by submitting the password (kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx)
+of the current level to a port on localhost in the range 31000 to 32000.**
+
+-> First find out which of 
+these ports have a server listening on them. ---> nmap -p 31000-32000 127.0.0.1
+
+
+-> Then find out which of those speak SSL/TLS and which don’t. 
+nmap -p 31000-32000 --script ssl-cert 127.0.0.1
+
+port 31790
+
+If  a  connection is established with an SSL server then any data received from the server is 
+displayed and any key presses will be sent to the server. If end of file
+       is reached then the connection will be closed down. When used interactively (which means neither **-quiet** nor -ign_eof have been given), then certain commands are  also
+       recognized which perform special operations. These commands are a letter which must appear at the start of a line. They are listed below.
+    Q   End the current SSL connection and exit.
+
+    R   Renegotiate the SSL session (TLSv1.2 and below only).
+
+    k   Send a key update message to the server (TLSv1.3 only)
+
+    K   Send a key update message to the server and request one back (TLSv1.3 only)
+
+When used interactively (which means neither **-quiet** nor -ign_eof have been given), then certain commands are  also
+recognized which perform special operations
+
+openssl s_client -connect 127.0.0.1:31790 (Wrong)
+
+-> openssl s_client -quiet -connect 127.0.0.1:31790 (Correct)
+
+-> it generates a private_key
+
+-> copy and paste it in a file named private1.key
+
+-> make it not accesible by others 
+chmod 700 private1.key
+
+then connect to level 17 through port 2220 using the private key just as in level 13 (for level 14)
+
+ssh -p 2220 -i bandit/private17.key bandit17@bandit.labs.overthewire.org
+
+_______________________________________________________________
+17.
+
+use the diff command 
+
+**The important thing to remember is that diff uses certain special 
+symbols and instructions that are required to make two files identical. 
+It tells you the instructions on how to change the first file to make it match the second file**
+
+diff <-c> passwords.old passwords.new
+
+x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
+
+but it is a troll level because when I am trying to connext to level 18, it logs me out
+
+_______________________________________________________________
+18.
+
+The password for the next level is stored in a file readme in the homedirectory. 
+Unfortunately, someone has modified .bashrc to log you out when you log in with SSH.
+
+You cannot modify .bashrc but you can bypass it
+
+ssh -p <port> user@ip.address.com 'command1; command2; command3'
+
+ssh -p 2220 bandit18@13.63.65.121 -t 'ls -la; cat readme'
+
+total 24
+drwxr-xr-x   2 root     root     4096 Apr  3 15:17 .
+drwxr-xr-x 150 root     root     4096 Apr  3 15:20 ..
+-rw-r--r--   1 root     root      220 Mar 31  2024 .bash_logout
+-rw-r-----   1 bandit19 bandit18 3874 Apr  3 15:17 .bashrc
+-rw-r--r--   1 root     root      807 Mar 31  2024 .profile
+-rw-r-----   1 bandit19 bandit18   33 Apr  3 15:17 readme
+cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
+
+
+_______________________________________________________________
+19.
+
+To gain access to the next level, you should use the setuid binary in the homedirectory. 
+Execute it without arguments ( ./bandit20-do ) to find out how to use it. The password for this level can be 
+found in the usual place (/etc/bandit_pass), after you have used the setuid binary.
+
+
+look for an 's' instead of an 'x' in the executable bit of the file permissions. 
+An example of an executable with:
+
+-rwsr-x---   1 bandit20 bandit19 14888 Apr  3 15:17 bandit20-do
+
+(https://www.geeksforgeeks.org/linux-unix/setuid-setgid-and-sticky-bits-in-linux-file-permissions/)
+
+
+~$ ./bandit20-do
+Run a command as another user.
+  Example: ./bandit20-do whoami
+
+./bandit20-do whoami
+bandit20
+
+./bandit20-do cat /etc/bandit_pass/bandit20
+0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
+
+_______________________________________________________________
+20.
+
+There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify (any) 
+as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). 
+If the password is correct, it will transmit the password for the next level (bandit21).
+
+
+first you must find a tcp port which is not in use 
+
+the following commands print the ones in use : 
+ nmap -sT -p- 127.0.0.1 (-st = scan for TCP)
+ nc -zv 127.0.0.1 1-8000 2>&1 | grep "succe" (for success or succeededq)
+
+say for example is 1234
+
+netcat (nc) will be most usefull for this level 
+netcat actually is how to get 2 computer on the same network 
+talk to each iother
+
+documendation -> (https://www.geeksforgeeks.org/linux-unix/netcat-basic-usage-and-overview/)
+
+
+now you need 2 terminals 
+
+1 . running : nc -lv 1234 (-l is for listenng -v Produce more verbose output)
+
+the other :
+2. ~$ ./suconnect 1024
+
+as suconnect says : 
+Usage: ./suconnect <portnumber>
+This program (terminal 2) will connect to the given port on localhost using TCP. 
+If it receives the correct password from the other side (terminal 1), the next password is 
+transmitted back (to terminal 1).
+
+EeoULMCra2q0dSkYj561DX7s1CpBuOBt
+
+_______________________________________________________________
+21.
+
+A program is running automatically at regular intervals from cron, the time-based job scheduler. 
+Look in /etc/cron.d/ for the configuration and see *what command is being executed.*
+
+bandit21@bandit:/etc/cron.d$ ls -la
+total 60
+drwxr-xr-x   2 root root  4096 Apr  3 15:21 .
+drwxr-xr-x 128 root root 12288 Apr  5 12:34 ..
+-r--r-----   1 root root    47 Apr  3 15:18 behemoth4_cleanup
+-rw-r--r--   1 root root   123 Apr  3 15:10 clean_tmp
+_______________________________________________________________
+-rw-r--r--   1 root root   120 Apr  3 15:17 cronjob_bandit22
+_______________________________________________________________
+-rw-r--r--   1 root root   122 Apr  3 15:17 cronjob_bandit23
+-rw-r--r--   1 root root   120 Apr  3 15:17 cronjob_bandit24
+-rw-r--r--   1 root root   201 Apr  8  2024 e2scrub_all
+-r--r-----   1 root root    48 Apr  3 15:19 leviathan5_cleanup
+-rw-------   1 root root   138 Apr  3 15:19 manpage3_resetpw_job
+-rwx------   1 root root    52 Apr  3 15:21 otw-tmp-dir
+-rw-r--r--   1 root root   102 Mar 31  2024 .placeholder
+-rw-r--r--   1 root root   396 Jan  9  2024 sysstat
+
+bandit21@bandit:/etc/cron.d$ cat cronjob_bandit22
+@reboot bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+* * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+
+cat /usr/bin/cronjob_bandit22.sh
+
+#!/bin/bash
+chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+
+it seems that this t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv is a code but in reality it is filename
+
+so 
+cd /tmp
+cat t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+
+tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q
+
+_______________________________________________________________
+22. 
+
+Exactly the Same thinking as the previous level 
+
+bandit22@bandit:/etc/cron.d$ cat cronjob_bandit23
+@reboot bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+* * * * * bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+
+bandit22@bandit:~$ cat /usr/bin/cronjob_bandit23.sh
+#!/bin/bash
+
+myname=$(whoami)
+mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+
+echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+
+myname=bandit23
+echo I am user $myname | md5sum | cut -d ' ' -f 1
+
+8ca319486bfbbc3663ea0fbe81326349
+
+cd /tmp
+
+cat 8ca319486bfbbc3663ea0fbe81326349
+
+password : 0Zf11ioIjMVN551jX3CmStKLYqjk54Ga
+
+_______________________________________________________________
+23.
+
+A program is running automatically at regular intervals from cron, the time-based job scheduler. 
+Look in /etc/cron.d/ for the configuration and see what command is being executed.
+
+
+NOTE: This level requires you to create your own first shell-script. This is a very big step 
+and you should be proud of yourself when you beat this level!
+
+NOTE 2: Keep in mind that your shell script is removed once executed, 
+so you may want to keep a copy around…
+
+bandit23@bandit:/etc/cron.d$ cat cronjob_bandit24
+@reboot bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+* * * * * bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+
+cronjob_bandit24.sh is being run on /usr/bin/ every time
+
+terminal 1
+cd /var/spool/bandit24/foo
+
+cd /tmp/zer0pan
+nano scr.sh (see script on cpanaret/bandit)
+
+bandit23@bandit:/tmp/zer0pan$ chmod 777 scr.sh (full rights read(r) write (w) and execute(x))
+cd ..
+chmod 777 zer0pan (see why in scr.sh)
+
+cp scr.sh /var/spool/bandit24/foo (in order to be executed)
+
+
+
+gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8
+
+_______________________________________________________________
+24.
+
+A daemon is listening on port 30002 and will give you the password for bandit25 
+if given the password for bandit24 and a secret numeric 4-digit pincode. There is no way to 
+retrieve the pincode except by going through all of the 10000 combinations, called brute-forcing.
+You do not need to create new connections each time
+
+you may listen through telnet or netcat (prefered for better speed)
+
+the command for listening is the same:
+
+nc/telnet localhost 30002
+
+you may write a simple script to zer0pan , named brute.sh
+
+for i in {a..b}; do
+  ...
+  ...
+done
+
+if [condition]; then
+  ...
+  ...
+fi
+
+#!bin/bash
+
+pass="gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8"
+
+for i in {0000..9999}; do
+  echo "$pass $i" 
+
+done | nc localhost 30002 | grep -n -v "Wrong"
+
+#end 
+
+
+1:I am the pincode checker for user bandit25. Please enter the password for user bandit24 and the secret pincode on a single line, separated by a space.
+8210:Correct!
+8211:The password of user bandit25 is iCi86ttT4KSNe1armKiwbQNmB3YJP3q4
+8212:
+
+pass = 8209
+
+or you may try (it is the same)
+
+#!bin/bash
+
+pass="gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8"
+
+for i in {0000..9999}; do
+  echo "$pass $i" 
+
+done 
+
+bash brute.sh | nc/telnet localhost 30002
+
+iCi86ttT4KSNe1armKiwbQNmB3YJP3q4
+
+
+_______________________________________________________________
+25.
+
+resembles level 18
+get the ssh key , make it non accesible by others and ssh to level 26
+
+make your window (vs code really small)
+
+press v
+then :set shell=/bin/bash
+then :sh
+
+_______________________________________________________________
+26.
+
+must grab the pass now that I am in
+
+if i run ./bandit-do i must do it like i am really bandit27
+
+for instance:
+bandit26@bandit:~$ ./bandit27-do cat /etc/bandit_pass/bandit27
+
+Run a command as another user.
+  Example: ./bandit27-do id
+
+id is the command you run each time
+
+upsNCc7vzaRDx6oZC6GiR6ERwe1MowGB
+
+_______________________________________________________________
+27.
+
+There is a git repository at ssh://bandit27-git@bandit.labs.overthewire.org/home/bandit27-git/repo via the port 2220. 
+The password for the user bandit27-git is the same as for the user bandit27.
+
+From your local machine (not the OverTheWire machine!), clone the repository and find the password 
+for the next level. This needs git installed locally on your machine.
+
+
+
+git clone ssh://bandit27-git@bandit.labs.overthewire.org:2220/home/bandit27-git/repo    (From your local machine,clone the repository)
+Yz9IpL0sBcCeuG7m9uQFt8ZNpS4HZRcN
