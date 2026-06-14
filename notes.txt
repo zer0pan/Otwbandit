@@ -718,3 +718,38 @@ cpanaret@LAPTOP-3C8LF0A2:~/bandit/repo$ git push
 
 
 3O9RfhqyAlVBEZpVb6LYStshZoqoSx5K
+
+_______________________________________________________________
+32.
+
+2. Bypassing an Uppercase-Enforcing ShellIf you are logged into a shell (e.g., OverTheWire) 
+that automatically forces all of your inputs into uppercase (rendering standard lowercase commands invalid), 
+you can bypass it by calling the current shell environment variable ($0).
+
+Type and execute /$0 to spawn a standard, unconstrained shell:bash/$0
+
+$0
+
+then you are on a bash shell 
+
+the tricky part here is that you are in level32
+
+but if you give whoami you will see that you are bandit33
+
+so you must give :  $ cat /etc/bandit_pass/bandit33
+
+tQdtbs5D5i2vJwkO8mEyYEyTL8izoeJ0
+
+_______________________________________________________________
+33.
+
+cat README.txt
+
+Congratulations on solving the last level of this game!
+
+At this moment, there are no more levels to play in this game. However, we are constantly working
+on new levels and will most likely expand this game with more levels soon.
+Keep an eye out for an announcement on our usual communication channels!
+In the meantime, you could play some of our other wargames.
+
+If you have an idea for an awesome new level, please let us know!
