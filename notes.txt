@@ -686,3 +686,35 @@ _______________________________________________________________
 same thinking as level 30 
 
 git clone ssh://bandit31-git@bandit.labs.overthewire.org:2220/home/bandit31-git/repo
+
+
+we do as the readme says
+
+This time your task is to push a file to the remote repository.
+
+Details:
+    File name: key.txt
+    Content: 'May I come in?'
+    Branch: master
+
+we make a file 
+
+touch key.txt
+
+and then when we try to git add
+
+git add key.txt
+
+cpanaret@LAPTOP-3C8LF0A2:~/bandit/repo$ git add key.txt
+The following paths are ignored by one of your .gitignore files:
+key.txt
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+
+cpanaret@LAPTOP-3C8LF0A2:~/bandit/repo$ git add key.txt -f
+cpanaret@LAPTOP-3C8LF0A2:~/bandit/repo$ git commit -m "comm"
+cpanaret@LAPTOP-3C8LF0A2:~/bandit/repo$ git push
+
+
+3O9RfhqyAlVBEZpVb6LYStshZoqoSx5K
