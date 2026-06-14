@@ -558,4 +558,98 @@ for the next level. This needs git installed locally on your machine.
 
 
 git clone ssh://bandit27-git@bandit.labs.overthewire.org:2220/home/bandit27-git/repo    (From your local machine,clone the repository)
+
+
 Yz9IpL0sBcCeuG7m9uQFt8ZNpS4HZRcN
+
+_______________________________________________________________
+28. 
+same with level 27 
+
+
+git clone ssh://bandit28-git@bandit.labs.overthewire.org:2220/home/bandit28-git/repo
+
+you must play around within the .git folder
+
+cd .git 
+ls -la 
+
+total 52
+drwxr-xr-x 8 cpanaret cpanaret 4096 Jun 14 19:50 .
+drwxr-xr-x 3 cpanaret cpanaret 4096 Jun 14 19:34 ..
+-rw-r--r-- 1 cpanaret cpanaret   23 Jun 14 19:34 HEAD # <-------------------------------
+drwxr-xr-x 2 cpanaret cpanaret 4096 Jun 14 19:33 branches
+-rw-r--r-- 1 cpanaret cpanaret  334 Jun 14 19:50 config
+-rw-r--r-- 1 cpanaret cpanaret   73 Jun 14 19:33 description
+drwxr-xr-x 2 cpanaret cpanaret 4096 Jun 14 19:33 hooks
+-rw-r--r-- 1 cpanaret cpanaret  137 Jun 14 19:34 index
+drwxr-xr-x 2 cpanaret cpanaret 4096 Jun 14 19:33 info
+drwxr-xr-x 3 cpanaret cpanaret 4096 Jun 14 19:34 logs
+drwxr-xr-x 4 cpanaret cpanaret 4096 Jun 14 19:33 objects
+-rw-r--r-- 1 cpanaret cpanaret  114 Jun 14 19:34 packed-refs
+drwxr-xr-x 5 cpanaret cpanaret 4096 Jun 14 19:34 refs
+
+cat HEAD
+ref: refs/heads/master
+
+cd refs/heads
+cat master
+
+cpanaret@LAPTOP-3C8LF0A2:~/bandit/repo/.git/refs/heads$ cat master
+adc7f885a129baee883058b8a870739489f80194
+
+git show adc7f885a129baee883058b8a870739489f80194
+
+adc7f885a129baee883058b8a870739489f80194 is a SHA-1 hash digital cryptographic message(fingerprint)
+
+
+4pT1t5DENaYuqnqvadYs1oE4QLCdjmJ7
+
+_______________________________________________________________
+29.
+
+There is a git repository at ssh://bandit29-git@bandit.labs.overthewire.org/home/bandit29-git/repo via the port 2220. 
+The password for the user bandit29-git is the same as for the user bandit29.
+
+From your local machine (not the OverTheWire machine!), clone the repository and find the password for the next level. 
+This needs git installed locally on your machine.
+Commands you may need to solve this level
+
+git clone ssh://bandit29-git@bandit.labs.overthewire.org:2220/home/bandit29-git/repo
+
+
+
+cpanaret@LAPTOP-3C8LF0A2:~/bandit/repo/.git$ ls -la
+total 52
+drwxr-xr-x 8 cpanaret cpanaret 4096 Jun 14 20:10 .
+drwxr-xr-x 3 cpanaret cpanaret 4096 Jun 14 20:10 ..
+-rw-r--r-- 1 cpanaret cpanaret   23 Jun 14 20:10 HEAD
+drwxr-xr-x 2 cpanaret cpanaret 4096 Jun 14 20:10 branches
+-rw-r--r-- 1 cpanaret cpanaret  299 Jun 14 20:10 config
+-rw-r--r-- 1 cpanaret cpanaret   73 Jun 14 20:10 description
+drwxr-xr-x 2 cpanaret cpanaret 4096 Jun 14 20:10 hooks
+-rw-r--r-- 1 cpanaret cpanaret  137 Jun 14 20:10 index
+drwxr-xr-x 2 cpanaret cpanaret 4096 Jun 14 20:10 info
+drwxr-xr-x 3 cpanaret cpanaret 4096 Jun 14 20:10 logs
+drwxr-xr-x 4 cpanaret cpanaret 4096 Jun 14 20:10 objects
+-rw-r--r-- 1 cpanaret cpanaret  252 Jun 14 20:10 packed-refs <----------------------
+drwxr-xr-x 5 cpanaret cpanaret 4096 Jun 14 20:10 refs
+
+git show 97622e03dcbefc7953e906cecbc8a602f84cba4a
+
+
+qp30ex3VLz5MDG1n91YowTv4Q8l7CDZL
+
+_______________________________________________________________
+30.
+
+same thinking as level 29
+
+There is a git repository at ssh://bandit30-git@bandit.labs.overthewire.org/home/bandit30-git/repo via the port 2220.
+The password for the user bandit30-git is the same as for the user bandit30.
+
+From your local machine (not the OverTheWire machine!), clone the repository and find the password for the next level. 
+This needs git installed locally on your machine.
+
+
+
