@@ -652,4 +652,37 @@ From your local machine (not the OverTheWire machine!), clone the repository and
 This needs git installed locally on your machine.
 
 
+git clone ssh://bandit30-git@bandit.labs.overthewire.org:2220/home/bandit30-git/repo
 
+cpanaret@LAPTOP-3C8LF0A2:~/bandit/repo/.git$ ls -la
+total 52
+drwxr-xr-x 8 cpanaret cpanaret 4096 Jun 14 20:10 .
+drwxr-xr-x 3 cpanaret cpanaret 4096 Jun 14 20:10 ..
+-rw-r--r-- 1 cpanaret cpanaret   23 Jun 14 20:10 HEAD
+drwxr-xr-x 2 cpanaret cpanaret 4096 Jun 14 20:10 branches
+-rw-r--r-- 1 cpanaret cpanaret  299 Jun 14 20:10 config
+-rw-r--r-- 1 cpanaret cpanaret   73 Jun 14 20:10 description
+drwxr-xr-x 2 cpanaret cpanaret 4096 Jun 14 20:10 hooks
+-rw-r--r-- 1 cpanaret cpanaret  137 Jun 14 20:10 index
+drwxr-xr-x 2 cpanaret cpanaret 4096 Jun 14 20:10 info
+drwxr-xr-x 3 cpanaret cpanaret 4096 Jun 14 20:10 logs
+drwxr-xr-x 4 cpanaret cpanaret 4096 Jun 14 20:10 objects
+-rw-r--r-- 1 cpanaret cpanaret  252 Jun 14 20:10 packed-refs <----------------------
+drwxr-xr-x 5 cpanaret cpanaret 4096 Jun 14 20:10 refs
+
+cat packed-refs 
+
+# pack-refs with: peeled fully-peeled sorted 
+f75fbad7884bd177fd211aa0f747e7d9688b23f2 refs/remotes/origin/master
+84368f3a7ee06ac993ed579e34b8bd144afad351 refs/tags/secret
+
+git show 84368f3a7ee06ac993ed579e34b8bd144afad351
+
+fb5S2xb7bRyFmAvQYQGEqsbhVyJqhnDy
+
+_______________________________________________________________
+31.
+
+same thinking as level 30 
+
+git clone ssh://bandit31-git@bandit.labs.overthewire.org:2220/home/bandit31-git/repo
